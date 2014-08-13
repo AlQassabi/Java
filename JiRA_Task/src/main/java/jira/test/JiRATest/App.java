@@ -27,11 +27,11 @@ public class App {
 		final JiraRestClientFactory factory = new AsynchronousJiraRestClientFactory();
 		
 		/*... in production ...*/
-		final URI jiraServerUri = new URI("http://10.26.6.47/");
+		final URI jiraServerUri = new URI("http://localhost/");
 		
-		final JiraRestClient restClient = factory.createWithBasicHttpAuthentication(jiraServerUri, "abdullah.alqassabi", "SQU_Sniper57984");
+		final JiraRestClient restClient = factory.createWithBasicHttpAuthentication(jiraServerUri, "user", "pass");
 		
-		final Issue issue = restClient.getIssueClient().getIssue("MO-1233").claim();
+		final Issue issue = restClient.getIssueClient().getIssue("issue-id").claim();
 		System.out.println(issue);
 		
 		//restClient.getIssueClient().vote(issue.getVotesUri()).claim();
